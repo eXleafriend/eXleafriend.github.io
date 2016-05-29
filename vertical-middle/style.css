@@ -1,0 +1,35 @@
+@charset 'utf-8';
+
+pre.sample-code {
+  background-color: #f0f0f0;
+  padding: 0.5em 1em;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+  line-height: 1.5em;
+  max-height: 15em;
+  overflow: auto;
+}
+
+pre.sample-code div.em {
+  background-color: #ffffcc;
+  white-space: pre;
+  font-family: inherit;
+}
+
+div.sample-view {
+  background-color: #f0f0f0;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+}
+
+.vertical-middle {
+  height: 10em;
+  background-color: #ffe0e0;
+  position: relative;
+}
+.vertical-middle > .vertical-middle-item {
+  background-color: #e0ffe0;
+  position: absolute;
+  top: 50%;
+}

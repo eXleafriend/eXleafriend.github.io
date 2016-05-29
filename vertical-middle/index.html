@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vertical Middle</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Vertical Middle</h1>
+
+<h2>When you know height of block</h2>
+
+<p>It works on IE 7.</p>
+
+<h3>CSS:</h3>
+
+<pre class="sample-code">
+.vertical-middle {
+  height: 10em;
+  background-color: #ffe0e0;
+  position: relative;
+}
+.vertical-middle > .vertical-middle-item {
+  background-color: #e0ffe0;
+  position: absolute;
+  top: 50%;
+}
+</pre>
+
+<h3>HTML:</h3>
+
+<p>You shold specify <code>height</code> of block & <code>margin-top</code> as half of <code>height</code> with style.</p>
+
+<pre class="sample-code">
+&lt;div class="vertical-middle"&gt;
+  &lt;div class="vertical-middle-item" style="
+<div class="em">    height: 1.5em;</div><div class="em">    margin-top: -0.75em;</div>  "&gt;
+    Hello, Middle!
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h3>Preview</h3>
+
+<div class="sample-view">
+  <div class="vertical-middle">
+    <div class="vertical-middle-item" style="
+      height: 1.5em;
+      margin-top: -0.75em;
+    ">
+      Hello, Middle!
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
