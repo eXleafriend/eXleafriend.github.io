@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Conditional Comment</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../base.css">
+<!--[if !IE]> -->
+<link rel="stylesheet" href="style-non-ie.css">
+<!-- <![endif]-->
+<!--[if gt IE 8]>
+<link rel="stylesheet" href="style-ie-gt-8.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" href="style-ie-eq-8.css">
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel="stylesheet" href="style-ie-lt-8.css">
+<![endif]-->
+<style>
+</style>
+</head>
+<body>
+
+<h1>Conditional Comment</h1>
+
+<p class="red-non-ie">This paragraph is red when Edge, IE 10/11, or non-IE</p>
+<p class="red-ie-gt-8">This paragraph is red when IE > 8</p>
+<p class="red-ie-eq-8">This paragraph is red when IE = 8</p>
+<p class="red-ie-lt-8">This paragraph is red when IE < 8</p>
+
+</body>
+</html>
