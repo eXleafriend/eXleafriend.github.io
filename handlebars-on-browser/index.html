@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Handlebars on Browser</title>
+<meta charset="utf-8">
+<meta title="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../base.css">
+<style>
+</style>
+</head>
+<body>
+
+<h1>Handlebars on Browser</h1>
+
+<h2>Handle Template in same HTML</h2>
+
+<ul id="articles-in-html"></ul>​
+
+<script id="article-template" type="x-handlebars-template">
+{{#each this}}
+  <li><a href="{{path}}">{{title}}, {{date}}</a></li>
+{{/each}}
+</script>
+
+<h2>Handle Template out of HTML</h2>
+
+<ul id="articles-out-of-html"></ul>​
+
+<h2>Handle Template out of HTML with Ajax</h2>
+
+<ul id="articles-with-ajax"></ul>​
+
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<script>
+function handlebar(url, callback) {
+  $.ajax(url, {
+    success: function(template) {
+      if ((typeof callback) === 'function') {
+        var tf = Handlebars.compile(template);
+        callback(tf);
+      }
+    }
+  });
+}
+</script>
+<script>
+var articles = [
+  {
+    "title": "Handlebars on Browser",
+    "path": "../handlebars-on-browser/",
+    "date": "2016-06-04"
+  },
+  {
+    "title": "Conditional Comment",
+    "path": "../conditional-comment/",
+    "date": "2016-06-03"
+  },
+  {
+    "title": "Vertical Middle",
+    "path": "../vertical-middle/",
+    "date": "2016-05-29"
+  },
+  {
+    "title": "Media Query",
+    "path": "../media-query/",
+    "date": "2016-05-29"
+  }
+]
+</script>
+<script>
+$(function  () {
+    var tpl = $("#article-template").html(); 
+    var tf = Handlebars.compile(tpl); 
+    $("#articles-in-html").append(tf(articles)); 
+});
+</script>
+<script>
+handlebar('article-template.html', function(tf) {
+  $("#articles-out-of-html").append(tf(articles)); 
+});
+</script>
+<script>
+$.ajax('article-data.json', {
+  success: function(articles) {
+    handlebar('article-template.html', function(tf) {
+      $("#articles-with-ajax").append(tf(articles)); 
+    });
+  }
+});
+</script>
+</body>
+</html>
